@@ -1,7 +1,5 @@
 #compdef mongo
 
-local -a args
-
 _arguments -S \
   "--shell[run the shell after executing files]" \
   "--nodb[don't connect to mongod on startup - no 'db address' arg expected]" \
