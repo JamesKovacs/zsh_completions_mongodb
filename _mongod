@@ -21,14 +21,14 @@ _arguments -S \
   "--noauth[Run without security]" \
   "--setParameter[Set a configurable parameter]:parameter:" \
   "--clusterAuthMode[Authentication mode used for cluster authentication. Alternatives are (keyFile|sendKeyFile|sendX509|x509)]:mode:(keyfile sendKeyFile sendX509 x509)" \
-  "--nounixsocket[Disable listening on unix sockets]" \
+  "--nounixsocket[Disable listening on UNIX domain socket]" \
   "--unixSocketPrefix[Alternative directory for UNIX domain sockets (defaults to /tmp)]:prefix:" \
   "--filePermissions[Permissions to set on UNIX domain socket file - 0700 by default]:permissions:" \
   "--fork[Fork server process]" \
   "--auth[Run with security]" \
   "--slowms[Value of slow for profile and console log - default is 100]:milliseconds:" \
   "--profile[Set global profiling level: 0=off 1=slow, 2=all]:level:(0 1 2)" \
-  "--cpu[Periodically show cpu and iowait utilization]" \
+  "--cpu[Periodically show CPU and iowait utilization]" \
   "--sysinfo[Print some diagnostic system information]" \
   "--noIndexBuildRetry[Don't retry any index builds that were interrupted by shutdown]" \
   "--noscripting[Disable scripting engine]" \

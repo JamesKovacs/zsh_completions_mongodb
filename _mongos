@@ -6,7 +6,7 @@ _arguments -S \
   {-f,--config}"[Configuration file specifying additional options]:filename:{_files}" \
   {-v,--verbose}"[Be more verbose (include multiple times for more verbosity e.g. -vvvvv)]" \
   "--quiet[Quieter output]" \
-  "--port[Specify port number - 27017 by default]:port number:" \
+  "--port[Specify port number: 27017 by default]:port number:" \
   "--bind_ip[Comma separated list of ip addresses to listen on - all local ips by default]:IPs:" \
   "--networkMessageCompressors[Enables network compression for communication (MongoDB 3.4+)]:network_compressor:(snappy)" \
   "--maxConns[Max number of simultaneous connections - 1000000 by default]:numConns:" \
@@ -21,13 +21,13 @@ _arguments -S \
   "--noauth[Run without security]" \
   "--setParameter[Set a configurable parameter]:parameter:" \
   "--clusterAuthMode[Authentication mode used for cluster authentication. Alternatives are (keyFile|sendKeyFile|sendX509|x509)]:mode:(keyfile sendKeyFile sendX509 x509)" \
-  "--nounixsocket[Disable listening on unix sockets]" \
+  "--nounixsocket[Disable listening on UNIX domain socket]" \
   "--unixSocketPrefix[Alternative directory for UNIX domain sockets (defaults to /tmp)]:prefix:" \
   "--filePermissions[Permissions to set on UNIX domain socket file - 0700 by default]:permissions:" \
   "--fork[Fork server process]" \
   "--configdb[Connection string for communicating with config servers. Acceptable forms: CSRS: <config replset name>/<host1:port>,<host2:port>,\[...\] SCCC (deprecated): <host1:port>,<host2: port>,<host3:port> Single-node (for testing only): <host1:port>]:uri:" \
   "--localThreshold[Ping time (in ms) for a node to be considered local (default 15ms)]:interval:" \
-  "--chunkSize[Maximum amount of data per chunk]:size:" \
+  "--chunkSize[Maximum amount of data per chunk in MB (default: 64)]:size:" \
   "--noscripting[Disable scripting engine]" \
   "--sslOnNormalPorts[Use SSL on configured ports]" \
   "--sslMode[Set the SSL operation mode (disabled|allowSSL|preferSSL|requireSSL)]:mode:(disabled allowSSL preferSSL requireSSL)" \
