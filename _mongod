@@ -57,7 +57,6 @@ _arguments -S \
   "--storageEngine[Storage engine to use: defaults to wiredTiger in MongoDB 3.2+ if no data files present]:storageEngine:" \
   "--dbpath[Directory for datafiles - defaults to /data/db]:directory:_files -/" \
   "--directoryperdb[Each database will be stored in a separate directory]" \
-  "--noprealloc[Disable data file preallocation - will often hurt performance]" \
   "--nssize[MMAPv1: .ns file size (in MB) for new databases - default is 16]:size:" \
   "--quota[MMAPv1: limits each database to a certain number of files (8 default)]" \
   "--quotaFiles[MMAPv1: number of files allowed per db, implies --quota]:number:" \
