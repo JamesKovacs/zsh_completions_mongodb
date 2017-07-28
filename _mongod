@@ -14,7 +14,7 @@ _arguments -S \
   "--syslog[Log to system's syslog facility instead of file or stdout]" \
   "--syslogFacility[Set syslog facility used for mongodb syslog message]:facility:" \
   "--logappend[Append to logpath instead of over-writing]" \
-  "--logRotate[Set the log rotation behavior (rename|reopen)]:behavior:(rename repoen)" \
+  "--logRotate[Set the log rotation behavior (rename|reopen)]:behavior:(rename reopen)" \
   "--timeStampFormat[Desired format for timestamps in log messages. One of ctime, iso8601-utc or iso8601-local]:format:(ctime iso8601-utc iso8601-local)" \
   "--pidfilepath[Full path to pidfile (if not set, no pidfile is created)]:filename:_files" \
   "--keyFile[Private key for cluster authentication]:filename:_files" \
