@@ -7,6 +7,7 @@ _arguments -S \
   "--quiet[Be less chatty]" \
   "--port[Port to connect to]:port number:" \
   "--host[Server to connect to]:hostname:" \
+  "--networkMessageCompressors[Enables network compression for communication (MongoDB 3.4+)]:network_compressor:(snappy)" \
   "--eval[Evaluate javascript]:filename:{_files -g '*.js'}" \
   {-h,--help}"[Show this usage information]" \
   "--version[Show version information]" \
