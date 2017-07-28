@@ -20,15 +20,12 @@ _arguments -S \
   "--keyFile[private key for cluster authentication]:filename:_files" \
   "--noauth[run without security]" \
   "--setParameter[Set a configurable parameter]:parameter:" \
-  "--httpinterface[enable http interface]" \
   "--clusterAuthMode[Authentication mode used for cluster authentication. Alternatives are (keyFile|sendKeyFile|sendX509|x509)]:mode:(keyfile sendKeyFile sendX509 x509)" \
   "--nounixsocket[disable listening on unix sockets]" \
   "--unixSocketPrefix[alternative directory for UNIX domain sockets (defaults to /tmp)]:prefix:" \
   "--filePermissions[permissions to set on UNIX domain socket file - 0700 by default]:permissions:" \
   "--fork[fork server process]" \
   "--auth[run with security]" \
-  "--jsonp[allow JSONP access via http (has security implications)]" \
-  "--rest[turn on simple rest api]" \
   "--slowms[value of slow for profile and console log - default is 100]:milliseconds:" \
   "--profile[0=off 1=slow, 2=all]:level:(0 1 2)" \
   "--cpu[periodically show cpu and iowait utilization]" \
