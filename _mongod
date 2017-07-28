@@ -69,6 +69,7 @@ _arguments -S \
   "--nojournal[Disable journaling]" \
   "--journalOptions[Journal diagnostic options]:options:" \
   "--journalCommitInterval[How often to group/batch commit (ms)]:interval:" \
+  "--transitionToAuth[Accept and create authenticated and non-authenticated connections (MongoDB 3.4+)]" \
   "--wiredTigerCacheSizeGB[Maximum amount of memory to allocate for cache; defaults to 1/2 of physical RAM]:size:" \
   "--wiredTigerStatisticsLogDelaySecs[Seconds to wait between each write to a statistics file in the dbpath; 0 means do not log statistics (default)]:interval:" \
   "--wiredTigerJournalCompressor[Use a compressor for log records \[none|snappy|zlib\] - snappy is default]:mode:(none snappy zlib)" \

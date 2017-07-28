@@ -42,6 +42,7 @@ _arguments -S \
   "--sslAllowInvalidHostnames[Allow server certificates to provide non-matching hostnames]" \
   "--sslAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
   "--sslFIPSMode[Activate FIPS 140-2 mode at startup]" \
+  "--transitionToAuth[Accept and create authenticated and non-authenticated connections (MongoDB 3.4+)]" \
   && return 0
 
 return 1
