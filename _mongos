@@ -27,7 +27,6 @@ _arguments -S \
   "--fork[Fork server process]" \
   "--configdb[Connection string for communicating with config servers. Acceptable forms: CSRS: <config replset name>/<host1:port>,<host2:port>,\[...\] SCCC (deprecated): <host1:port>,<host2: port>,<host3:port> Single-node (for testing only): <host1:port>]:uri:" \
   "--localThreshold[Ping time (in ms) for a node to be considered local (default 15ms)]:interval:" \
-  "--test[Just run unit tests]" \
   "--chunkSize[Maximum amount of data per chunk]:size:" \
   "--noscripting[Disable scripting engine]" \
   "--sslOnNormalPorts[Use SSL on configured ports]" \
