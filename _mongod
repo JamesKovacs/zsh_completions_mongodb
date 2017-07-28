@@ -8,7 +8,6 @@ _arguments -S \
   "--quiet[Quieter output]" \
   "--port[Specify port number - 27017 by default]:port number:" \
   "--bind_ip[Comma separated list of ip addresses to listen on - all local ips by default]:IPs:" \
-  "--ipv6[Enable IPv6 support (disabled by default)]" \
   "--maxConns[Max number of simultaneous connections - 1000000 by default]:numConns:" \
   "--logpath[Log file to send write to instead of stdout - has to be a file, not directory]:filename:_files" \
   "--syslog[Log to system's syslog facility instead of file or stdout]" \

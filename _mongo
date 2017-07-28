@@ -11,7 +11,6 @@ _arguments -S \
   {-h,--help}"[Show this usage information]" \
   "--version[Show version information]" \
   "--verbose[Increase verbosity]" \
-  "--ipv6[Enable ipv6 support (disabled by default)]" \
   "--disableJavaScriptJIT[Disable the JavaScript just in time compiler (MongoDB 3.2+)]" \
   "--disableJavaScriptProtection[Allow automatic JavaScript function marshalling (MongoDB 3.4+)]" \
   "--enableJavaScriptProtection[Disallow automatic JavaScript function marshalling (MongoDB 3.2.4+; not required in 3.4)]" \
