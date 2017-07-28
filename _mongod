@@ -37,12 +37,6 @@ _arguments -S \
   "--noscripting[disable scripting engine]" \
   "--notablescan[do not allow table scans]" \
   "--oplogSize[size to use (in MB) for replication op log. default is 5% of disk space (i.e. large is good)]:sizeInMB:" \
-  "--master[master mode]" \
-  "--slave[slave mode]" \
-  "--source[when slave: specify master as <server:port>]:server:" \
-  "--only[when slave: specify a single database to replicate]:database:" \
-  "--slavedelay[specify delay (in seconds) to be used when applying master ops to slave]:delay:" \
-  "--autoresync[automatically resync if slave data is stale]" \
   "--replSet[arg is <setname>\[/<optionalseedhostlist >\]]:name:" \
   "--replIndexPrefetch[specify index prefetching behavior (if secondary) \[none|_id_only|all\]]:behavior:(none _id_only all)" \
   "--enableMajorityReadConcern[enables majority readConcern]" \
