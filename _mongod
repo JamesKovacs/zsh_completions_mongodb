@@ -36,7 +36,7 @@ _arguments -S \
   "--oplogSize[Size to use (in MB) for initial replication oplog. Default is 5% of disk space (i.e. large is good)]:sizeInMB:" \
   "--replSet[Arg is <setname>\[/<optionalseedhostlist >\]]:name:" \
   "--replIndexPrefetch[Specify index prefetching behavior (if secondary) \[none|_id_only|all\]]:behavior:(none _id_only all)" \
-  "--enableMajorityReadConcern[Enables majority readConcern]" \
+  "--enableMajorityReadConcern[Enables majority read concern (MongoDB 3.2+)]" \
   "--configsvr[Declare this is a config db of a cluster; default port 27019; default dir /data/configdb]" \
   "--configsvrMode[Controls what config server protocol is in use. When set to "sccc" keeps server in legacy SyncClusterConnection mode even when the service is running as a replSet]:mode:(sccc csrs)" \
   "--shardsvr[Declare this is a shard db of a cluster; default port 27018]" \
