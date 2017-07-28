@@ -1,81 +1,81 @@
 #compdef mongod
 
 _arguments -S \
-  {-h,--help}"[show this usage information]" \
-  "--version[show version information]" \
-  {-f,--config}"[configuration file specifying additional options]:filename:{_files}" \
-  {-v,--verbose}"[be more verbose (include multiple times for more verbosity e.g. -vvvvv)]" \
-  "--quiet[quieter output]" \
-  "--port[specify port number - 27017 by default]:port number:" \
-  "--bind_ip[comma separated list of ip addresses to listen on - all local ips by default]:IPs:" \
-  "--ipv6[enable IPv6 support (disabled by default)]" \
-  "--maxConns[max number of simultaneous connections - 1000000 by default]:numConns:" \
-  "--logpath[log file to send write to instead of stdout - has to be a file, not directory]:filename:_files" \
-  "--syslog[log to system's syslog facility instead of file or stdout]" \
-  "--syslogFacility[syslog facility used for mongodb syslog message]:facility:" \
-  "--logappend[append to logpath instead of over-writing]" \
-  "--logRotate[set the log rotation behavior (rename|reopen)]:behavior:(rename repoen)" \
+  {-h,--help}"[Show this usage information]" \
+  "--version[Show version information]" \
+  {-f,--config}"[Configuration file specifying additional options]:filename:{_files}" \
+  {-v,--verbose}"[Be more verbose (include multiple times for more verbosity e.g. -vvvvv)]" \
+  "--quiet[Quieter output]" \
+  "--port[Specify port number - 27017 by default]:port number:" \
+  "--bind_ip[Comma separated list of ip addresses to listen on - all local ips by default]:IPs:" \
+  "--ipv6[Enable IPv6 support (disabled by default)]" \
+  "--maxConns[Max number of simultaneous connections - 1000000 by default]:numConns:" \
+  "--logpath[Log file to send write to instead of stdout - has to be a file, not directory]:filename:_files" \
+  "--syslog[Log to system's syslog facility instead of file or stdout]" \
+  "--syslogFacility[Set syslog facility used for mongodb syslog message]:facility:" \
+  "--logappend[Append to logpath instead of over-writing]" \
+  "--logRotate[Set the log rotation behavior (rename|reopen)]:behavior:(rename repoen)" \
   "--timeStampFormat[Desired format for timestamps in log messages. One of ctime, iso8601-utc or iso8601-local]:format:(ctime iso8601-utc iso8601-local)" \
-  "--pidfilepath[full path to pidfile (if not set, no pidfile is created)]:filename:_files" \
-  "--keyFile[private key for cluster authentication]:filename:_files" \
-  "--noauth[run without security]" \
+  "--pidfilepath[Full path to pidfile (if not set, no pidfile is created)]:filename:_files" \
+  "--keyFile[Private key for cluster authentication]:filename:_files" \
+  "--noauth[Run without security]" \
   "--setParameter[Set a configurable parameter]:parameter:" \
   "--clusterAuthMode[Authentication mode used for cluster authentication. Alternatives are (keyFile|sendKeyFile|sendX509|x509)]:mode:(keyfile sendKeyFile sendX509 x509)" \
-  "--nounixsocket[disable listening on unix sockets]" \
-  "--unixSocketPrefix[alternative directory for UNIX domain sockets (defaults to /tmp)]:prefix:" \
-  "--filePermissions[permissions to set on UNIX domain socket file - 0700 by default]:permissions:" \
-  "--fork[fork server process]" \
-  "--auth[run with security]" \
-  "--slowms[value of slow for profile and console log - default is 100]:milliseconds:" \
-  "--profile[0=off 1=slow, 2=all]:level:(0 1 2)" \
-  "--cpu[periodically show cpu and iowait utilization]" \
-  "--sysinfo[print some diagnostic system information]" \
-  "--noIndexBuildRetry[don't retry any index builds that were interrupted by shutdown]" \
-  "--noscripting[disable scripting engine]" \
-  "--notablescan[do not allow table scans]" \
-  "--oplogSize[size to use (in MB) for replication op log. default is 5% of disk space (i.e. large is good)]:sizeInMB:" \
-  "--replSet[arg is <setname>\[/<optionalseedhostlist >\]]:name:" \
-  "--replIndexPrefetch[specify index prefetching behavior (if secondary) \[none|_id_only|all\]]:behavior:(none _id_only all)" \
-  "--enableMajorityReadConcern[enables majority readConcern]" \
-  "--configsvr[declare this is a config db of a cluster; default port 27019; default dir /data/configdb]" \
+  "--nounixsocket[Disable listening on unix sockets]" \
+  "--unixSocketPrefix[Alternative directory for UNIX domain sockets (defaults to /tmp)]:prefix:" \
+  "--filePermissions[Permissions to set on UNIX domain socket file - 0700 by default]:permissions:" \
+  "--fork[Fork server process]" \
+  "--auth[Run with security]" \
+  "--slowms[Value of slow for profile and console log - default is 100]:milliseconds:" \
+  "--profile[Set global profiling level: 0=off 1=slow, 2=all]:level:(0 1 2)" \
+  "--cpu[Periodically show cpu and iowait utilization]" \
+  "--sysinfo[Print some diagnostic system information]" \
+  "--noIndexBuildRetry[Don't retry any index builds that were interrupted by shutdown]" \
+  "--noscripting[Disable scripting engine]" \
+  "--notablescan[Do not allow queries that require a collection scan]" \
+  "--oplogSize[Size to use (in MB) for initial replication oplog. Default is 5% of disk space (i.e. large is good)]:sizeInMB:" \
+  "--replSet[Arg is <setname>\[/<optionalseedhostlist >\]]:name:" \
+  "--replIndexPrefetch[Specify index prefetching behavior (if secondary) \[none|_id_only|all\]]:behavior:(none _id_only all)" \
+  "--enableMajorityReadConcern[Enables majority readConcern]" \
+  "--configsvr[Declare this is a config db of a cluster; default port 27019; default dir /data/configdb]" \
   "--configsvrMode[Controls what config server protocol is in use. When set to "sccc" keeps server in legacy SyncClusterConnection mode even when the service is running as a replSet]:mode:(sccc csrs)" \
-  "--shardsvr[declare this is a shard db of a cluster; default port 27018]" \
-  "--sslOnNormalPorts[use ssl on configured ports]" \
-  "--sslMode[set the SSL operation mode (disabled|allowSSL|preferSSL|requireSSL)]:mode:(disabled allowSSL preferSSL requireSSL)" \
-  "--sslPEMKeyFile[PEM file for ssl]:filename:_files" \
+  "--shardsvr[Declare this is a shard db of a cluster; default port 27018]" \
+  "--sslOnNormalPorts[Use SSL on configured ports]" \
+  "--sslMode[Set the SSL operation mode (disabled|allowSSL|preferSSL|requireSSL)]:mode:(disabled allowSSL preferSSL requireSSL)" \
+  "--sslPEMKeyFile[PEM file for SSL]:filename:_files" \
   "--sslPEMKeyPassword[PEM file password]:filename:_files" \
   "--sslClusterFile[Key file for internal SSL authentication]:filename:_files" \
   "--sslClusterPassword[Internal authentication key file password]:filename:_files" \
   "--sslCAFile[Certificate Authority file for SSL]:filename:_files" \
   "--sslCRLFile[Certificate Revocation List file for SSL]:filename:_files" \
   "--sslDisabledProtocols[Comma separated list of TLS protocols to disable \[TLS1_0,TLS1_1,TLS1_2\]]:protocol:(TLS1_0 TLS1_1 TLS1_2)" \
-  "--sslWeakCertificateValidation[allow client to connect without presenting a certificate]" \
-  "--sslAllowConnectionsWithoutCertificates[allow client to connect without presenting a certificate]" \
+  "--sslWeakCertificateValidation[Allow client to connect without presenting a certificate]" \
+  "--sslAllowConnectionsWithoutCertificates[Allow client to connect without presenting a certificate]" \
   "--sslAllowInvalidHostnames[Allow server certificates to provide non-matching hostnames]" \
-  "--sslAllowInvalidCertificates[allow connections to servers with invalid certificates]" \
-  "--sslFIPSMode[activate FIPS 140-2 mode at startup]" \
-  "--storageEngine[what storage engine to use - defaults to wiredTiger if no data files present]:storageEngine:" \
-  "--dbpath[directory for datafiles - defaults to /data/db]:directory:_files -/" \
-  "--directoryperdb[each database will be stored in a separate directory]" \
-  "--noprealloc[disable data file preallocation - will often hurt performance]" \
-  "--nssize[.ns file size (in MB) for new databases - default is 16]:size:" \
-  "--quota[limits each database to a certain number of files (8 default)]" \
-  "--quotaFiles[number of files allowed per db, implies --quota]:number:" \
-  "--smallfiles[use a smaller default file size]" \
-  "--syncdelay[seconds between disk syncs (0=never, but not recommended, default=60)]:time:" \
-  "--upgrade[upgrade db if needed]" \
-  "--repair[run repair on all dbs]" \
-  "--repairpath[root directory for repair files - defaults to dbpath]:directory:_files -/" \
-  "--journal[enable journaling]" \
-  "--nojournal[disable journaling (journaling is on by default for 64 bit)]" \
-  "--journalOptions[journal diagnostic options]:options:" \
-  "--journalCommitInterval[how often to group/batch commit (ms)]:interval:" \
-  "--wiredTigerCacheSizeGB[maximum amount of memory to allocate for cache; defaults to 1/2 of physical RAM]:size:" \
-  "--wiredTigerStatisticsLogDelaySecs[seconds to wait between each write to a statistics file in the dbpath; 0 means do not log statistics (default)]:interval:" \
-  "--wiredTigerJournalCompressor[use a compressor for log records \[none|snappy|zlib\] - snappy is default]:mode:(none snappy zlib)" \
+  "--sslAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
+  "--sslFIPSMode[Activate FIPS 140-2 mode at startup]" \
+  "--storageEngine[Storage engine to use: defaults to wiredTiger in MongoDB 3.2+ if no data files present]:storageEngine:" \
+  "--dbpath[Directory for datafiles - defaults to /data/db]:directory:_files -/" \
+  "--directoryperdb[Each database will be stored in a separate directory]" \
+  "--noprealloc[Disable data file preallocation - will often hurt performance]" \
+  "--nssize[MMAPv1: .ns file size (in MB) for new databases - default is 16]:size:" \
+  "--quota[MMAPv1: limits each database to a certain number of files (8 default)]" \
+  "--quotaFiles[MMAPv1: number of files allowed per db, implies --quota]:number:" \
+  "--smallfiles[MMAPv1: use a smaller default file size]" \
+  "--syncdelay[Seconds between disk syncs (0=never, but not recommended, default=60)]:time:" \
+  "--upgrade[Upgrade db if needed]" \
+  "--repair[Run repair on all dbs]" \
+  "--repairpath[Root directory for repair files - defaults to dbpath]:directory:_files -/" \
+  "--journal[Enable journaling (on by default for 64 bit binaries)]" \
+  "--nojournal[Disable journaling]" \
+  "--journalOptions[Journal diagnostic options]:options:" \
+  "--journalCommitInterval[How often to group/batch commit (ms)]:interval:" \
+  "--wiredTigerCacheSizeGB[Maximum amount of memory to allocate for cache; defaults to 1/2 of physical RAM]:size:" \
+  "--wiredTigerStatisticsLogDelaySecs[Seconds to wait between each write to a statistics file in the dbpath; 0 means do not log statistics (default)]:interval:" \
+  "--wiredTigerJournalCompressor[Use a compressor for log records \[none|snappy|zlib\] - snappy is default]:mode:(none snappy zlib)" \
   "--wiredTigerDirectoryForIndexes[Put indexes and data in different directories]" \
-  "--wiredTigerCollectionBlockCompressor[block compression algorithm for collection data \[none|snappy|zlib\] - snappy is default]:mode:(none snappy zlib)" \
-  "--wiredTigerIndexPrefixCompression[use prefix compression on row-store leaf pages - default is 1]:boolean:(0 1)" \
+  "--wiredTigerCollectionBlockCompressor[Block compression algorithm for collection data \[none|snappy|zlib\] - snappy is default]:mode:(none snappy zlib)" \
+  "--wiredTigerIndexPrefixCompression[Use prefix compression on row-store leaf pages - default is 1]:boolean:(0 1)" \
   && return 0
 
 return 1
