@@ -1,31 +1,32 @@
 #compdef mongo
 
 _arguments -S \
-  "--shell[run the shell after executing files]" \
-  "--nodb[don't connect to mongod on startup - no 'db address' arg expected]" \
-  '--norc[will not run the ".mongorc.js" file on start up]' \
-  "--quiet[be less chatty]" \
-  "--port[port to connect to]:port number:" \
-  "--host[server to connect to]:hostname:" \
-  "--eval[evaluate javascript]:filename:{_files -g '*.js'}" \
-  {-h,--help}"[show this usage information]" \
-  "--version[show version information]" \
-  "--verbose[increase verbosity]" \
-  "--ipv6[enable ipv6 support (disabled by default)]" \
-  "--disablejavascriptjit[disable the javascript just in time compiler]" \
-  "--enablejavascriptprotection[disable automatic javascript function marshalling]" \
-  "--ssl[use ssl for all connections]" \
-  "--sslcafile[certificate authority file for ssl]:arg:_files" \
-  "--sslpemkeyfile[pem certificate/key file for ssl]:arg:_files" \
-  "--sslpemkeypassword[password for key in pem file for ssl]:arg:_files" \
-  "--sslcrlfile[certificate revocation list file for ssl]:arg:_files" \
-  "--sslallowinvalidhostnames[allow connections to servers with non-matching hostnames]" \
-  "--sslallowinvalidcertificates[allow connections to servers with invalid certificates]" \
-  "--sslfipsmode[activate fips 140-2 mode at startup]" \
-  {-u,--username}"[username for authentication]:username:" \
-  {-p,--password}"[password for authentication]:password:" \
-  "--authenticationDatabase[user source (defaults to dbname)]:authentication database:" \
-  "--authenticationMechanism[authentication mechanism]:mechanism:" \
+  "--shell[Run the shell after executing files]" \
+  "--nodb[Don't connect to mongod on startup - no 'db address' arg expected]" \
+  '--norc[Will not run the ".mongorc.js" file on start up]' \
+  "--quiet[Be less chatty]" \
+  "--port[Port to connect to]:port number:" \
+  "--host[Server to connect to]:hostname:" \
+  "--networkMessageCompressors[Enables network compression for communication (MongoDB 3.4+)]:network_compressor:(snappy)" \
+  "--eval[Evaluate javascript]:filename:{_files -g '*.js'}" \
+  {-h,--help}"[Show this usage information]" \
+  "--version[Show version information]" \
+  "--verbose[Increase verbosity]" \
+  "--disableJavaScriptJIT[Disable the JavaScript just in time compiler (MongoDB 3.2+)]" \
+  "--disableJavaScriptProtection[Allow automatic JavaScript function marshalling (MongoDB 3.4+)]" \
+  "--enableJavaScriptProtection[Disallow automatic JavaScript function marshalling (MongoDB 3.2.4+; not required in 3.4)]" \
+  "--ssl[Use SSL for all connections]" \
+  "--sslCAFile[Certificate authority file for SSL]:arg:_files" \
+  "--sslPEMKeyFile[PEM certificate/key file for SSl]:arg:_files" \
+  "--sslPEMKeyPassword[Password for key in PEM file for SSL]:arg:_files" \
+  "--sslCRLFile[Certificate revocation list file for SSL]:arg:_files" \
+  "--sslAllowInvalidHostnames[Allow connections to servers with non-matching hostnames]" \
+  "--sslAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
+  "--sslFIPSMode[Activate FIPS 140-2 mode at startup]" \
+  {-u,--username}"[Username for authentication]:username:" \
+  {-p,--password}"[Password for authentication]:password:" \
+  "--authenticationDatabase[User source (defaults to dbname)]:authentication database:" \
+  "--authenticationMechanism[Authentication mechanism]:mechanism:" \
   "--gssapiServiceName[Service name to use when authenticating using GSSAPI/Kerberos]:service name:" \
   "--gssapiHostName[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:hostname:" \
   && return 0
