@@ -1,0 +1,34 @@
+#compdef mongofiles
+
+_arguments -S \
+  "--help[Show this usage information]" \
+  "--version[Show version information]" \
+  "--verbose[More detailed log output (specify a numeric value from 1 to 5)]" \
+  "--quiet[Hide all log output]" \
+  {-h,--host}"[Server to connect to]:hostname:" \
+  "--port[Port to connect to]:port number:" \
+  {-d,--db}"[Database to use (default: test)]:dbname:" \
+  {-l,--local}"[Local filename for put|get]:local:_files:" \
+  {-r,--replace}"[Remove other files with same name after put]" \
+  {-t,--type}"[Content/MIME type for put (optional)]:mimetype:" \
+  "--prefix[GridFS prefix to use (default: fs)]:prefix:" \
+  "--writeConcern[Write concern options e.g. --writeConcern majority]:writeConcern:" \
+  "--readPreference[Specify either a preference name or a preference JSON object]:readPreference:" \
+  "--ssl[Use SSL for all connections]" \
+  "--sslCAFile[Certificate authority file for SSL]:cafile:_files" \
+  "--sslPEMKeyFile[PEM certificate/key file for SSl]:pemkey:_files" \
+  "--sslPEMKeyPassword[Password for key in PEM file for SSL]:pempass:_files" \
+  "--sslCRLFile[Certificate revocation list file for SSL]:crlfile:_files" \
+  "--sslAllowInvalidHostnames[Allow connections to servers with non-matching hostnames]" \
+  "--sslAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
+  "--sslFIPSMode[Activate FIPS 140-2 mode at startup]" \
+  {-u,--username}"[Username for authentication]:username:" \
+  {-p,--password}"[Password for authentication]:password:" \
+  "--authenticationDatabase[User source (defaults to dbname)]:authentication database:" \
+  "--authenticationMechanism[Authentication mechanism]:mechanism:" \
+  "--gssapiServiceName[Service name to use when authenticating using GSSAPI/Kerberos]:service name:" \
+  "--gssapiHostName[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:hostname:" \
+  "--uri[MongoDB URI connection string]:mongodb-uri:" \
+  && return 0
+
+return 1

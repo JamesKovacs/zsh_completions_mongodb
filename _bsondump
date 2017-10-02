@@ -1,0 +1,15 @@
+#compdef bsondump
+
+_arguments -S \
+  "--bsonFile[Path to BSON file to dump to JSON (default: stdin)]:filename:_files -g \*.bson" \
+  "--outFile[Path to output file to dump BSON to (default: stdout)]" \
+  "--help[Show this usage information]" \
+  "--objcheck[Validate BSON during processing]" \
+  "--pretty[Output JSON formatted to be human-readable]" \
+  "--quiet[Hide all log output]" \
+  "--type[type of output: debug, json (default: json)]" \
+  "--version[Show version information]" \
+  "--verbose[More detailed log output (specify a numeric value from 1 to 5)]:verbose:" \
+  && return 0
+
+return 1
