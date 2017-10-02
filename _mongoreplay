@@ -1,0 +1,11 @@
+#compdef mongoreplay
+
+_arguments -S \
+  "--help[Show this usage information]" \
+  "--version[Show version information]" \
+  "--verbose[More detailed log output (specify a numeric value from 1 to 5)]:verbose:" \
+  {-d,-dd,-ddd,--debug}"[Increase the detail regarding the operations and errors of the tool that is output to the logs(include multiple times for increased debugging information, e.g. -ddd)]" \
+  {-s,--silent}"[Silence all log output]" \
+  && return 0
+
+return 1

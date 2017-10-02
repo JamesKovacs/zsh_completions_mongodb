@@ -1,0 +1,46 @@
+#compdef mongoimport
+
+_arguments -S \
+  "--help[Show this usage information]" \
+  "--version[Show version information]" \
+  "--verbose[More detailed log output (specify a numeric value from 1 to 5)]:verbose:" \
+  "--quiet[Hide all log output]" \
+  {-h,--host}"[Server to connect to]:hostname:" \
+  "--port[Port to connect to]:port number:" \
+  "--ssl[Use SSL for all connections]" \
+  "--sslCAFile[Certificate authority file for SSL]:arg:_files" \
+  "--sslPEMKeyFile[PEM certificate/key file for SSl]:arg:_files" \
+  "--sslPEMKeyPassword[Password for key in PEM file for SSL]:arg:_files" \
+  "--sslCRLFile[Certificate revocation list file for SSL]:arg:_files" \
+  "--sslAllowInvalidHostnames[Allow connections to servers with non-matching hostnames]" \
+  "--sslAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
+  "--sslFIPSMode[Activate FIPS 140-2 mode at startup]" \
+  {-u,--username}"[Username for authentication]:username:" \
+  {-p,--password}"[Password for authentication]:password:" \
+  "--authenticationDatabase[User source (defaults to dbname)]:authentication database:" \
+  "--authenticationMechanism[Authentication mechanism]:mechanism:" \
+  "--gssapiServiceName[Service name to use when authenticating using GSSAPI/Kerberos]:service name:" \
+  "--gssapiHostName[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:hostname:" \
+  "--uri[MongoDB URI connection string]:mongodb-uri:" \
+  {-d,--db}"[Database to use]:database:" \
+  {-c,--collection}"[Collection to use]:collection:" \
+  {-f,--fields}"[Comma separated list of fields e.g. -f \"name,age\"]" \
+  "--fieldFile[File with field names - 1 per line]:fieldFile:_files:" \
+  "--file[File to import from; if not specified, stdin is used]:file:_files:" \
+  "--headerline[Use first line in input source as the field list (CSV and TSV only)]" \
+  "--jsonArray[Treat input source as a JSON array]" \
+  "--parseGrace[Controls behavior when type coercion fails. One of: autoCast, skipField, skipRow, stop (default: stop)]:parseGrace:" \
+  "--type[Input format to import: json, csv, or tsv (default: json)]:type:" \
+  "--columnsHaveTypes[Indicate that the field list (from --fields, --fieldsFile, or --headerline) specifies types.]" \
+  "--drop[Drop collection before inserting documents]" \
+  "--ignoreBlanks[Ignore fields with empty values in CSV and TSV]" \
+  "--maintainInsertionOrder[Insert documents in the order of their appearance in the input source]" \
+  {-j,--numInsertionWorkers}"[Number of insert operations to run concurrently (default: 1)]:numInsertionWorkers:" \
+  "--stopOnError[Stop importing at first insert/upsert error]" \
+  "--mode=[insert: insert only. upsert: insert or replace existing documents. merge: insert or modify existing documents. Default: insert]:mode:" \
+  "--upsertFields[Comma-separated fields for the query part when --mode is set to upsert or merge]" \
+  "--writeConcern[Write concern options e.g. --writeConcern '{w: 3, wtimeout: 500, fsync: true, j: true}' (default: majority)]:writeConcern:" \
+  "--bypassDocumentValidation[Bypass document validation]" \
+  && return 0
+
+return 1

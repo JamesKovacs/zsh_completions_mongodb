@@ -1,0 +1,43 @@
+#compdef mongodump
+
+_arguments -S \
+  "--help[Show this usage information]" \
+  "--version[Show version information]" \
+  "--verbose[More detailed log output (specify a numeric value from 1 to 5)]" \
+  "--quiet[Hide all log output]" \
+  {-h,--host}"[Server to connect to]:hostname:" \
+  "--port[Port to connect to]:port number:" \
+  "--ssl[Use SSL for all connections]" \
+  "--sslCAFile[Certificate authority file for SSL]:arg:_files" \
+  "--sslPEMKeyFile[PEM certificate/key file for SSl]:arg:_files" \
+  "--sslPEMKeyPassword[Password for key in PEM file for SSL]:arg:_files" \
+  "--sslCRLFile[Certificate revocation list file for SSL]:arg:_files" \
+  "--sslAllowInvalidHostnames[Allow connections to servers with non-matching hostnames]" \
+  "--sslAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
+  "--sslFIPSMode[Activate FIPS 140-2 mode at startup]" \
+  {-u,--username}"[Username for authentication]:username:" \
+  {-p,--password}"[Password for authentication]:password:" \
+  "--authenticationDatabase[User source (defaults to dbname)]:authentication database:" \
+  "--authenticationMechanism[Authentication mechanism]:mechanism:" \
+  "--gssapiServiceName[Service name to use when authenticating using GSSAPI/Kerberos]:service name:" \
+  "--gssapiHostName[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:hostname:" \
+  "--uri[MongoDB URI connection string]:mongodb-uri:" \
+  {-d,--db}"[Database to use]:database:" \
+  {-c,--collection}"[Collection to use]:collection:" \
+  {-q,--query}"[Query filter, as a JSON string, e.g., '{x:{$gt:1}}']:query:" \
+  "--queryFile[Path to a file containing a query filter (JSON)]:queryFile:_files:" \
+  "--readPreference[Specify either a preference name or a preference json object]" \
+  "--forceTableScan[Force a table scan]" \
+  {-o,--out}"[Output directory, or '-' for stdout (defaults to 'dump')]:out:_files -/" \
+  "--gzip[Compress archive our collection output with Gzip]" \
+  "--repair[Try to recover documents from damaged data files (not supported by all storage engines)]" \
+  "--oplog[Use oplog for taking a point-in-time snapshot]" \
+  "--archive[Dump as an archive to the specified path. If flag is specified without a value, archive is written to stdout]:archive:" \
+  "--dumpDbUsersAndRoles[Dump user and role definitions for the specified database]" \
+  "--excludeCollection[Collection to exclude from the dump (may be specified multiple times to exclude additional collections)]" \
+  "--excludeCollectionsWithPrefix[Exclude all collections from the dump that have the given prefix (may be specified multiple times to exclude additional prefixes)]" \
+  {-j,--numParallelCollections}"[Number of collections to dump in parallel (4 by default) (default: 4)]:numParallelCollections:" \
+  "--viewsAsCollections[Dump views as normal collections with their produced data, omitting standard collections]" \
+  && return 0
+
+return 1
