@@ -7,7 +7,10 @@ _arguments -S \
   {-v,--verbose}"[Be more verbose (include multiple times for more verbosity e.g. -vvvvv)]" \
   "--quiet[Quieter output]" \
   "--port[Specify port number - 27017 by default]:port number:" \
-  "--bind_ip[Comma separated list of ip addresses to listen on - all local ips by default]:IPs:" \
+  "--bind_ip[Comma separated list of ip addresses to listen on - all local ips by default -  localhost by default (MongoDB 3.6+)]:IPs:" \
+  "--bind_ip_all[Bind to all ip addresses (MongoDB 3.6+)]" \
+  "--ipv6[Enable IPv6 support (disabled by default)]" \
+  "--listenBacklog[set socket listen backlog size (MongoDB 3.6+)]:backlog_size:(128)" \
   "--networkMessageCompressors[Enables network compression for communication (MongoDB 3.4+)]:network_compressor:(snappy)" \
   "--maxConns[Max number of simultaneous connections - 1000000 by default]:numConns:" \
   "--logpath[Log file to send write to instead of stdout - has to be a file, not directory]:filename:_files" \
@@ -17,6 +20,7 @@ _arguments -S \
   "--logRotate[Set the log rotation behavior (rename|reopen)]:behavior:(rename reopen)" \
   "--timeStampFormat[Desired format for timestamps in log messages. One of ctime, iso8601-utc or iso8601-local]:format:(ctime iso8601-utc iso8601-local)" \
   "--pidfilepath[Full path to pidfile (if not set, no pidfile is created)]:filename:_files" \
+  "--timeZoneInfo[Full path to time zone info directory, e.g. /usr/share/zoneinfo]:path:" \
   "--keyFile[Private key for cluster authentication]:filename:_files" \
   "--noauth[Run without security]" \
   "--setParameter[Set a configurable parameter]:parameter:" \
@@ -26,7 +30,9 @@ _arguments -S \
   "--filePermissions[Permissions to set on UNIX domain socket file - 0700 by default]:permissions:" \
   "--fork[Fork server process]" \
   "--auth[Run with security]" \
+  "--clusterIpSourceWhitelist[Network CIDR specification of permitted origin for __system access (MongoDB 3.6+)]:ip_source_white_list:" \
   "--slowms[Value of slow for profile and console log - default is 100]:milliseconds:" \
+  "--slowOpSampleRate[Fraction of slow ops to include in the profile and console log (MongoDB 3.6+)]:fraction_of_slow_ops:" \
   "--profile[Set global profiling level: 0=off 1=slow, 2=all]:level:(0 1 2)" \
   "--cpu[Periodically show CPU and iowait utilization]" \
   "--sysinfo[Print some diagnostic system information]" \

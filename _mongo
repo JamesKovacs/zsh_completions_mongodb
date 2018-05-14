@@ -25,6 +25,7 @@ _arguments -S \
   "--sslFIPSMode[Activate FIPS 140-2 mode at startup]" \
   {-u,--username}"[Username for authentication]:username:" \
   {-p,--password}"[Password for authentication]:password:" \
+  "--retryWrites[automatically retry write operations upon transient network errors (MongoDB 3.6+)]" \
   "--authenticationDatabase[User source (defaults to dbname)]:authentication database:" \
   "--authenticationMechanism[Authentication mechanism]:mechanism:" \
   "--gssapiServiceName[Service name to use when authenticating using GSSAPI/Kerberos]:service name:" \
