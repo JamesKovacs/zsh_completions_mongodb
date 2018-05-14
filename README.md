@@ -1,6 +1,6 @@
 # zsh_completions_mongodb
 
-ZSH completion files for MongoDB 3.4 server & tools:
+ZSH completion files for MongoDB 3.6 server & tools:
  * `bsondump`
  * `mongo`
  * `mongod`
@@ -28,6 +28,12 @@ ZSH completion files for MongoDB 3.4 server & tools:
 * Start a new `zsh` session or reload completions:
 
         autoload -U compinit && compinit
+
+### Install for [oh-my-zsh](http://github.com/robbyrussell/oh-my-zsh) with [Antigen](https://github.com/zsh-users/antigen)
+
+* Installation with antigen
+
+        antigen bundle JamesKovacs/zsh_completions_mongodb
 
 ### Manual installation
 

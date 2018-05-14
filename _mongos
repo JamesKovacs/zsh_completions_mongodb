@@ -8,6 +8,8 @@ _arguments -S \
   "--quiet[Quieter output]" \
   "--port[Specify port number: 27017 by default]:port number:" \
   "--bind_ip[Comma separated list of ip addresses to listen on - all local ips by default]:IPs:" \
+  "--bind_ip_all[Bind to all ip addresses (MongoDB 3.6+)]" \
+  "--listenBacklog[set socket listen backlog size (MongoDB 3.6+)]:backlog_size:(128)" \
   "--networkMessageCompressors[Enables network compression for communication (MongoDB 3.4+)]:network_compressor:(snappy)" \
   "--maxConns[Max number of simultaneous connections - 1000000 by default]:numConns:" \
   "--logpath[Log file to send write to instead of stdout - has to be a file, not directory]:filename:_files" \
@@ -17,6 +19,7 @@ _arguments -S \
   "--logRotate[Set the log rotation behavior (rename|reopen)]:behavior:(rename repoen)" \
   "--timeStampFormat[Desired format for timestamps in log messages. One of ctime, iso8601-utc or iso8601-local]:format:(ctime iso8601-utc iso8601-local)" \
   "--pidfilepath[Full path to pidfile (if not set, no pidfile is created)]:filename:_files" \
+  "--timeZoneInfo[Full path to time zone info directory, e.g. /usr/share/zoneinfo]:path:" \
   "--keyFile[Private key for cluster authentication]:filename:_files" \
   "--noauth[Run without security]" \
   "--setParameter[Set a configurable parameter]:parameter:" \
