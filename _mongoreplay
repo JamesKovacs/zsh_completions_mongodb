@@ -6,6 +6,10 @@ _arguments -S \
   "--verbose[More detailed log output (specify a numeric value from 1 to 5)]:verbose:" \
   {-d,-dd,-ddd,--debug}"[Increase the detail regarding the operations and errors of the tool that is output to the logs(include multiple times for increased debugging information, e.g. -ddd)]" \
   {-s,--silent}"[Silence all log output]" \
+  "filter[Filter playback file]:filter:" \
+  "monitor[Inspect live or pre-recorded MongoDB traffic]:monitor:" \
+  "play[Play captured traffic against a MongoDB instance]:play:" \
+  "record[Convert network traffic into MongoDB queries]:record:" \
   && return 0
 
 return 1
