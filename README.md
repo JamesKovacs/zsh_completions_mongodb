@@ -1,6 +1,6 @@
 # zsh_completions_mongodb
 
-ZSH completion files for MongoDB 3.6 server & tools:
+ZSH completion files for MongoDB 4.0 server & tools:
  * `bsondump`
  * `mongo`
  * `mongod`

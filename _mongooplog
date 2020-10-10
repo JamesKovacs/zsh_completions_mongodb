@@ -24,7 +24,7 @@ _arguments -S \
   "--gssapiHostName[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:hosts:" \
   "--uri[MongoDB URI connection string]:mongodb-uri:" \
   "--from[Specify the host for mongooplog to retrieve operations from]:fromhost:" \
-  "--oplogns[Specify the namespace in the --from host where the oplog lives (default: local.oplog.rs)]:oplogns;" \
+  "--oplogns[Specify the namespace in the --from host where the oplog lives (default: local.oplog.rs)]:oplogns:" \
   && return 0
 
 return 1
