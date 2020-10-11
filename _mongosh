@@ -1,0 +1,25 @@
+#compdef mongosh
+
+_arguments -S \
+  {-h,--help}"[Show this usage information]" \
+  "--host[Server to connect to]:arg:(localhost)" \
+  "--port[Port to connect to]:arg:(27017)" \
+  "--version[Show version information]" \
+  "--nodb[Don't connect to mongod on startup - no 'db address' arg expected]" \
+  "--retryWrites[automatically retry write operations upon transient network errors (MongoDB 3.6+)]" \
+  {-u,--username}"[Username for authentication]:arg:" \
+  {-p,--password}"[Password for authentication]:arg:" \
+  "--authenticationDatabase[User source (defaults to dbname)]:arg:(admin)" \
+  "--authenticationMechanism[Authentication mechanism]:arg:(SCRAM-SHA-256)" \
+  "--tls[Use TLS for all connections]" \
+  "--tlsCertificateKeyFile[PEM certificate/key file for TLS]:filename:_files" \
+  "--tlsCertificateKeyFilePassword[Password for key in PEM file for TLS]:arg:" \
+  "--tlsCAFile[Certificate Authority file for TLS]:filename:_files" \
+  "--tlsAllowInvalidHostnames[Allow server certificates to provide non-matching hostnames]" \
+  "--tlsAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
+  "--tlsCertificateSelector[TLS Certificate in system store]:arg:" \
+  "--tlsDisabledProtocols[Comma separated list of TLS protocols to disable \[TLS1_0,TLS1_1,TLS1_2\]]:arg:(TLS1_0,TLS1_1,TLS1_2)" \
+  && return 0
+
+return 1
+

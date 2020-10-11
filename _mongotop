@@ -1,30 +1,32 @@
 #compdef mongotop
 
+verbose_values=( 1 2 3 4 5 )
+
 _arguments -S \
   "--help[Show this usage information]" \
   "--version[Show version information]" \
-  "--verbose[More detailed log output (specify a numeric value from 1 to 5)]:verbose:" \
+  "--verbose=[More detailed log output (specify a numeric value from 1 to 5)]:arg:_values 'verbose' $verbose_values" \
   "--quiet[Hide all log output]" \
-  {-h,--host}"[Server to connect to]:hostname:" \
-  "--port[Port to connect to]:port number:" \
+  {-h,--host}"[Server to connect to]:arg:(localhost)" \
+  "--port=[Port to connect to]:arg:(27017)" \
   "--ssl[Use SSL for all connections]" \
-  "--sslCAFile[Certificate authority file for SSL]:arg:_files" \
-  "--sslPEMKeyFile[PEM certificate/key file for SSl]:arg:_files" \
-  "--sslPEMKeyPassword[Password for key in PEM file for SSL]:arg:_files" \
-  "--sslCRLFile[Certificate revocation list file for SSL]:arg:_files" \
+  "--sslCAFile=[Certificate authority file for SSL]:filename:_files" \
+  "--sslPEMKeyFile=[PEM certificate/key file for SSl]:filename:_files" \
+  "--sslPEMKeyPassword=[Password for key in PEM file for SSL]:arg:" \
+  "--sslCRLFile=[Certificate revocation list file for SSL]:filename:_files" \
   "--sslAllowInvalidHostnames[Allow connections to servers with non-matching hostnames]" \
   "--sslAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
   "--sslFIPSMode[Activate FIPS 140-2 mode at startup]" \
-  {-u,--username}"[Username for authentication]:username:" \
-  {-p,--password}"[Password for authentication]:password:" \
-  "--authenticationDatabase[User source (defaults to dbname)]:authentication database:" \
-  "--authenticationMechanism[Authentication mechanism]:mechanism:" \
-  "--gssapiServiceName[Service name to use when authenticating using GSSAPI/Kerberos]:service name:" \
-  "--gssapiHostName[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:hostname:" \
-  "--uri[MongoDB URI connection string]:mongodb-uri:" \
+  {-u,--username}"[Username for authentication]:arg:" \
+  {-p,--password}"[Password for authentication]:arg:" \
+  "--authenticationDatabase=[User source (defaults to dbname)]:arg:(admin)" \
+  "--authenticationMechanism=[Authentication mechanism]:arg:(SCRAM-SHA-256)" \
+  "--gssapiServiceName=[Service name to use when authenticating using GSSAPI/Kerberos]:arg:" \
+  "--gssapiHostName=[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:arg:" \
+  "--uri[MongoDB URI connection string]:arg:" \
   "--json[Format output as JSON]" \
   "--locks[Report on use of per-database locks]" \
-  {-n,--rowcount}"[Number of stats lines to print (0 for {indefinite)]:rowcount:" \
+  {-n,--rowcount}"[Number of stats lines to print (0 for {indefinite)]:arg:" \
   && return 0
 
 return 1

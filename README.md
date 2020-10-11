@@ -1,6 +1,6 @@
 # zsh_completions_mongodb
 
-ZSH completion files for MongoDB 4.0 server & tools:
+ZSH completion files for [MongoDB Server](https://docs.mongodb.com/manual/), [Database Tools](https://docs.mongodb.com/database-tools/), and [MongoDB Shell](https://docs.mongodb.com/mongodb-shell/):
  * `bsondump`
  * `mongo`
  * `mongod`
@@ -8,10 +8,9 @@ ZSH completion files for MongoDB 4.0 server & tools:
  * `mongoexport`
  * `mongofiles`
  * `mongoimport`
- * `mongooplog`
- * `mongoreplay`
  * `mongorestore`
  * `mongos`
+ * `mongosh`
  * `mongostat`
  * `mongotop`
 
