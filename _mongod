@@ -1,87 +1,110 @@
 #compdef mongod
 
+configexpand_values=( none exec rest )
+
 _arguments -S \
   {-h,--help}"[Show this usage information]" \
   "--version[Show version information]" \
   {-f,--config}"[Configuration file specifying additional options]:filename:{_files}" \
+  "--configExpand[Process expansion directives in config file (none, exec, rest)]:arg:_values 'configexpand' $configexpand_values" \
   {-v,--verbose}"[Be more verbose (include multiple times for more verbosity e.g. -vvvvv)]" \
   "--quiet[Quieter output]" \
-  "--port[Specify port number - 27017 by default]:port number:" \
-  "--bind_ip[Comma separated list of ip addresses to listen on - all local ips by default -  localhost by default (MongoDB 3.6+)]:IPs:" \
+  "--port[Specify port number (default: 27017)]:arg:(27017)" \
+  "--bind_ip[Comma separated list of ip addresses to listen on - all local ips by default -  localhost by default (MongoDB 3.6+)]:IPs:(127.0.0.1)" \
   "--bind_ip_all[Bind to all ip addresses (MongoDB 3.6+)]" \
   "--ipv6[Enable IPv6 support (disabled by default)]" \
   "--listenBacklog[set socket listen backlog size (MongoDB 3.6+)]:backlog_size:(128)" \
-  "--networkMessageCompressors[Enables network compression for communication (MongoDB 3.4+)]:network_compressor:(snappy)" \
-  "--maxConns[Max number of simultaneous connections - 1000000 by default]:numConns:" \
+  "--networkMessageCompressors[Enables network compression for communication (default: snappy,zstd,zlib)]:arg:(snappy,zstd,zlib)" \
+  "--maxConns[Max number of simultaneous connections - 1000000 by default]:arg:(1000000)" \
   "--logpath[Log file to send write to instead of stdout - has to be a file, not directory]:filename:_files" \
   "--syslog[Log to system's syslog facility instead of file or stdout]" \
-  "--syslogFacility[Set syslog facility used for mongodb syslog message]:facility:" \
+  "--syslogFacility[Set syslog facility used for mongodb syslog message (default:user)]:arg:(user)" \
   "--logappend[Append to logpath instead of over-writing]" \
-  "--logRotate[Set the log rotation behavior (rename|reopen)]:behavior:(rename reopen)" \
-  "--timeStampFormat[Desired format for timestamps in log messages. One of ctime, iso8601-utc or iso8601-local]:format:(ctime iso8601-utc iso8601-local)" \
+  "--logRotate[Set the log rotation behavior (rename|reopen)]:arg:(rename reopen)" \
+  "--timeStampFormat[Desired format for timestamps in log messages. One of ctime, iso8601-utc or iso8601-local]:arg:(ctime iso8601-utc iso8601-local)" \
   "--pidfilepath[Full path to pidfile (if not set, no pidfile is created)]:filename:_files" \
-  "--timeZoneInfo[Full path to time zone info directory, e.g. /usr/share/zoneinfo]:path:" \
+  "--timeZoneInfo[Full path to time zone info directory, e.g. /usr/share/zoneinfo]:arg:(/usr/share/zoneinfo)" \
   "--keyFile[Private key for cluster authentication]:filename:_files" \
   "--noauth[Run without security]" \
-  "--setParameter[Set a configurable parameter]:parameter:" \
-  "--clusterAuthMode[Authentication mode used for cluster authentication. Alternatives are (keyFile|sendKeyFile|sendX509|x509)]:mode:(keyfile sendKeyFile sendX509 x509)" \
+  "--setParameter[Set a configurable parameter]:arg:" \
+  "--clusterAuthMode[Authentication mode used for cluster authentication. Alternatives are (keyFile|sendKeyFile|sendX509|x509)]:mode:(keyFile sendKeyFile sendX509 x509)" \
   "--nounixsocket[Disable listening on UNIX domain socket]" \
-  "--unixSocketPrefix[Alternative directory for UNIX domain sockets (defaults to /tmp)]:prefix:" \
-  "--filePermissions[Permissions to set on UNIX domain socket file - 0700 by default]:permissions:" \
+  "--unixSocketPrefix[Alternative directory for UNIX domain sockets (defaults to /tmp)]:arg:" \
+  "--filePermissions[Permissions to set on UNIX domain socket file - 0700 by default]:arg:" \
   "--fork[Fork server process]" \
   "--auth[Run with security]" \
-  "--clusterIpSourceWhitelist[Network CIDR specification of permitted origin for __system access (MongoDB 3.6+)]:ip_source_white_list:" \
-  "--slowms[Value of slow for profile and console log - default is 100]:milliseconds:" \
-  "--slowOpSampleRate[Fraction of slow ops to include in the profile and console log (MongoDB 3.6+)]:fraction_of_slow_ops:" \
-  "--profile[Set global profiling level: 0=off 1=slow, 2=all]:level:(0 1 2)" \
+  "--clusterIpSourceWhitelist[Network CIDR specification of permitted origin for __system access (MongoDB 3.6+)]:arg:" \
+  "--slowms[Value of slow for profile and console log - default is 100]:arg:(100)" \
+  "--slowOpSampleRate[Fraction of slow ops to include in the profile and console log (MongoDB 3.6+)]:arg:" \
+  "--profile[Set global profiling level: 0=off 1=slow, 2=all]:arg:(0 1 2)" \
   "--cpu[Periodically show CPU and iowait utilization]" \
   "--sysinfo[Print some diagnostic system information]" \
   "--noIndexBuildRetry[Don't retry any index builds that were interrupted by shutdown]" \
   "--noscripting[Disable scripting engine]" \
   "--notablescan[Do not allow queries that require a collection scan]" \
-  "--oplogSize[Size to use (in MB) for initial replication oplog. Default is 5% of disk space (i.e. large is good)]:sizeInMB:" \
-  "--replSet[Arg is <setname>\[/<optionalseedhostlist >\]]:name:" \
-  "--replIndexPrefetch[Specify index prefetching behavior (if secondary) \[none|_id_only|all\]]:behavior:(none _id_only all)" \
+  "--oplogMinRetentionHours[Minimum number of hours to preserve in the oplog (MongoDB 4.4+). Default is 0 (turned off).]:arg:(0)" \
+  "--oplogSize[Size to use (in MB) for initial replication oplog. Default is 5% of disk space (i.e. large is good)]:arg:" \
+  "--replSet[Arg is <setname>\[/<optionalseedhostlist >\]]:arg:" \
+  "--replIndexPrefetch[Specify index prefetching behavior (if secondary) \[none|_id_only|all\]]:arg:(none _id_only all)" \
   "--enableMajorityReadConcern[Enables majority read concern (MongoDB 3.2+)]" \
   "--configsvr[Declare this is a config db of a cluster; default port 27019; default dir /data/configdb]" \
   "--configsvrMode[Controls what config server protocol is in use. When set to "sccc" keeps server in legacy SyncClusterConnection mode even when the service is running as a replSet]:mode:(sccc csrs)" \
   "--shardsvr[Declare this is a shard db of a cluster; default port 27018]" \
   "--sslOnNormalPorts[Use SSL on configured ports]" \
-  "--sslMode[Set the SSL operation mode (disabled|allowSSL|preferSSL|requireSSL)]:mode:(disabled allowSSL preferSSL requireSSL)" \
+  "--sslMode[Set the SSL operation mode (disabled|allowSSL|preferSSL|requireSSL)]:arg:(disabled allowSSL preferSSL requireSSL)" \
   "--sslPEMKeyFile[PEM file for SSL]:filename:_files" \
-  "--sslPEMKeyPassword[PEM file password]:filename:_files" \
+  "--sslPEMKeyPassword[PEM file password]:arg:" \
   "--sslClusterFile[Key file for internal SSL authentication]:filename:_files" \
-  "--sslClusterPassword[Internal authentication key file password]:filename:_files" \
+  "--sslClusterPassword[Internal authentication key file password]:arg:" \
   "--sslCAFile[Certificate Authority file for SSL]:filename:_files" \
   "--sslCRLFile[Certificate Revocation List file for SSL]:filename:_files" \
-  "--sslDisabledProtocols[Comma separated list of TLS protocols to disable \[TLS1_0,TLS1_1,TLS1_2\]]:protocol:(TLS1_0 TLS1_1 TLS1_2)" \
+  "--sslDisabledProtocols[Comma separated list of TLS protocols to disable \[TLS1_0,TLS1_1,TLS1_2\]]:arg:(TLS1_0,TLS1_1,TLS1_2)" \
   "--sslWeakCertificateValidation[Allow client to connect without presenting a certificate]" \
   "--sslAllowConnectionsWithoutCertificates[Allow client to connect without presenting a certificate]" \
   "--sslAllowInvalidHostnames[Allow server certificates to provide non-matching hostnames]" \
   "--sslAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
   "--sslFIPSMode[Activate FIPS 140-2 mode at startup]" \
   "--storageEngine[Storage engine to use: defaults to wiredTiger in MongoDB 3.2+ if no data files present]:storageEngine:" \
+  "--tlsOnNormalPorts[Use TLS on configured ports]" \
+  "--tlsMode[Set the TLS operation mode (disabled|allowTLS|preferTLS|requireTLS)]:mode:(disabled allowTLS preferTLS requireTLS)" \
+  "--tlsCertificateKeyFile[Certificate and key file for TLS]:filename:_files" \
+  "--tlsCertificateKeyFilePassword[Password to unlock key in the TLS certificate key file]:arg:" \
+  "--tlsClusterFile[Key file for internal TLS authentication]:filename:_files" \
+  "--tlsClusterPassword[Internal authentication key file password]:arg:" \
+  "--tlsCAFile[Certificate Authority file for TLS]:filename:_files" \
+  "--tlsClusterCAFile[CA used for verifying remotes during inbound connections]:filename:_files" \
+  "--tlsCRLFile[Certificate Revocation List file for TLS]:filename:_files" \
+  "--tlsDisabledProtocols[Comma separated list of TLS protocols to disable \[TLS1_0,TLS1_1,TLS1_2\]]:arg:(TLS1_0,TLS1_1,TLS1_2)" \
+  "--tlsAllowConnectionsWithoutCertificates[Allow client to connect without presenting a certificate]" \
+  "--tlsAllowInvalidHostnames[Allow server certificates to provide non-matching hostnames]" \
+  "--tlsAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
+  "--tlsFIPSMode[Activate FIPS 140-2 mode at startup]" \
+  "--tlsCertificateSelector[TLS Certificate in system store]" \
+  "--tlsClusterCertificateSelector[SSL/TLS Certificate in system store for internal TLS authentication]" \
+  "--tlsLogVersions[Comma separated list of TLS protocols to log on connect \[TLS1_0,TLS1_1,TLS1_2\]]:arg:(TLS1_0,TLS1_1,TLS1_2)" \
+  "--enableFreeMonitoring[Enable Cloud Free Monitoring (on|runtime|off)]:arg:(on runtime off)" \
+  "--freeMonitoringTag[Cloud Free Monitoring Tags]:arg:" \
   "--dbpath[Directory for datafiles - defaults to /data/db]:directory:_files -/" \
   "--directoryperdb[Each database will be stored in a separate directory]" \
-  "--nssize[MMAPv1: .ns file size (in MB) for new databases - default is 16]:size:" \
-  "--quota[MMAPv1: limits each database to a certain number of files (8 default)]" \
-  "--quotaFiles[MMAPv1: number of files allowed per db, implies --quota]:number:" \
+  "--nssize[MMAPv1: .ns file size (in MB) for new databases (default: 16)]:arg:(16)" \
+  "--quota[MMAPv1: limits each database to a certain number of files (default:8):arg:(8)]" \
+  "--quotaFiles[MMAPv1: number of files allowed per db, implies --quota]:arg:" \
   "--smallfiles[MMAPv1: use a smaller default file size]" \
-  "--syncdelay[Seconds between disk syncs (0=never, but not recommended, default=60)]:time:" \
+  "--syncdelay[Seconds between disk syncs (0=never, but not recommended, default=60)]:arg:(60)" \
   "--upgrade[Upgrade db if needed]" \
   "--repair[Run repair on all dbs]" \
   "--repairpath[Root directory for repair files - defaults to dbpath]:directory:_files -/" \
   "--journal[Enable journaling (on by default for 64 bit binaries)]" \
   "--nojournal[Disable journaling]" \
-  "--journalOptions[Journal diagnostic options]:options:" \
-  "--journalCommitInterval[How often to group/batch commit (ms)]:interval:" \
+  "--journalOptions[Journal diagnostic options]:arg:" \
+  "--journalCommitInterval[How often to group/batch commit (default: 100ms)]:arg:(100)" \
   "--transitionToAuth[Accept and create authenticated and non-authenticated connections (MongoDB 3.4+)]" \
-  "--wiredTigerCacheSizeGB[Maximum amount of memory to allocate for cache; defaults to 1/2 of physical RAM]:size:" \
-  "--wiredTigerStatisticsLogDelaySecs[Seconds to wait between each write to a statistics file in the dbpath; 0 means do not log statistics (default)]:interval:" \
-  "--wiredTigerJournalCompressor[Use a compressor for log records \[none|snappy|zlib\] - snappy is default]:mode:(none snappy zlib)" \
+  "--wiredTigerCacheSizeGB[Maximum amount of memory to allocate for cache; defaults to 1/2 of physical RAM]:arg:" \
+  "--wiredTigerStatisticsLogDelaySecs[Seconds to wait between each write to a statistics file in the dbpath; 0 means do not log statistics (default)]:arg:(0)" \
+  "--wiredTigerJournalCompressor[Use a compressor for log records \[none|snappy|zlib\] - snappy is default]:arg:(none snappy zlib)" \
   "--wiredTigerDirectoryForIndexes[Put indexes and data in different directories]" \
-  "--wiredTigerCollectionBlockCompressor[Block compression algorithm for collection data \[none|snappy|zlib\] - snappy is default]:mode:(none snappy zlib)" \
-  "--wiredTigerIndexPrefixCompression[Use prefix compression on row-store leaf pages - default is 1]:boolean:(0 1)" \
+  "--wiredTigerCollectionBlockCompressor[Block compression algorithm for collection data \[none|snappy|zlib\] - snappy is default]:arg:(none snappy zlib)" \
+  "--wiredTigerIndexPrefixCompression[Use prefix compression on row-store leaf pages - default is 1]:arg:(0 1)" \
   && return 0
 
 return 1

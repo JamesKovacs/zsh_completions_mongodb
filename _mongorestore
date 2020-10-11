@@ -1,52 +1,58 @@
 #compdef mongorestore
 
+verbose_values=( 1 2 3 4 5 )
+
 _arguments -S \
   "--help[Show this usage information]" \
   "--version[Show version information]" \
-  "--verbose[More detailed log output (specify a numeric value from 1 to 5)]:verbose:" \
+  "--verbose=[More detailed log output (specify a numeric value from 1 to 5)]:arg:_values 'verbose' $verbose_values" \
   "--quiet[Hide all log output]" \
-  {-h,--host}"[Server to connect to]:hostname:" \
-  "--port[Port to connect to]:port number:" \
+  {-h,--host}"[Server to connect to]:arg:(localhost)" \
+  "--port[Port to connect to]:arg:(27017)" \
   "--ssl[Use SSL for all connections]" \
-  "--sslCAFile[Certificate authority file for SSL]:arg:_files" \
-  "--sslPEMKeyFile[PEM certificate/key file for SSl]:arg:_files" \
-  "--sslPEMKeyPassword[Password for key in PEM file for SSL]:arg:_files" \
-  "--sslCRLFile[Certificate revocation list file for SSL]:arg:_files" \
+  "--sslCAFile=[Certificate authority file for SSL]:filename:_files" \
+  "--sslPEMKeyFile=[PEM certificate/key file for SSl]:filename:_files" \
+  "--sslPEMKeyPassword=[Password for key in PEM file for SSL]:arg:" \
+  "--sslCRLFile=[Certificate revocation list file for SSL]:filename:_files" \
   "--sslAllowInvalidHostnames[Allow connections to servers with non-matching hostnames]" \
   "--sslAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
   "--sslFIPSMode[Activate FIPS 140-2 mode at startup]" \
-  {-u,--username}"[Username for authentication]:username:" \
-  {-p,--password}"[Password for authentication]:password:" \
-  "--authenticationDatabase[User source (defaults to dbname)]:authentication database:" \
-  "--authenticationMechanism[Authentication mechanism]:mechanism:" \
-  "--gssapiServiceName[Service name to use when authenticating using GSSAPI/Kerberos]:service name:" \
-  "--gssapiHostName[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:hostname:" \
-  "--uri[MongoDB URI connection string]:mongodb-uri:" \
-  {-d,--db}"[Database to use]:database:" \
-  {-c,--collection}"[Collection to use]:collection:" \
-  "--nsExclude[Exclude matching namespaces]:nsExclude:" \
-  "--nsInclude[Include matching namespaces]:nsInclude:" \
-  "--nsFrom[Rename matching namespaces, must have matching nsTo]:nsFrom:" \
-  "--nsTo[Rename matched namespaces, must have matching nsFrom]:nsTo:" \
+  {-u,--username}"[Username for authentication]:arg:" \
+  {-p,--password}"[Password for authentication]:arg:" \
+  "--authenticationDatabase=[User source (defaults to dbname)]:arg:(admin)" \
+  "--authenticationMechanism=[Authentication mechanism]:arg:(SCRAM-SHA-256)" \
+  "--awsSessionToken=[Session token to authenticate via AWS IAM]:arg:" \
+  "--gssapiServiceName=[Service name to use when authenticating using GSSAPI/Kerberos]:arg:" \
+  "--gssapiHostName=[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:arg:" \
+  "--uri=[MongoDB URI connection string]:arg:" \
+  {-d,--db}"[Database to use]:arg:" \
+  {-c,--collection}"[Collection to use]:arg:" \
+  "--nsExclude=[Exclude matching namespaces]:arg:" \
+  "--nsInclude=[Include matching namespaces]:arg:" \
+  "--nsFrom=[Rename matching namespaces, must have matching nsTo]:arg:" \
+  "--nsTo=[Rename matched namespaces, must have matching nsFrom]:arg:" \
   "--objcheck[Validate all objects before inserting]" \
   "--oplogReplay[Replay oplog for point-in-time restore]" \
-  "--oplogLimit[Only include oplog entries before the provided Timestamp]:oplogLimit:" \
-  "--oplogFile[Oplog file to use for replay of oplog]:oplogFile:_files:" \
-  "--archive[Restore dump from the specified archive file. If flag is specified without a value, archive is read from stdin]" \
-  "--restoreDbUsersAndRoles[Restore user and role definitions for the given database]" \
-  "--dir[Input directory, use '-' for stdin]" \
+  "--oplogLimit=[Only include oplog entries before the provided Timestamp]:arg:" \
+  "--oplogFile=[Oplog file to use for replay of oplog]:filename:_files:" \
+  "--archive[Restore dump from the specified archive file. If flag is specified without a value, archive is read from stdin]:filename:_files:" \
+  "--restoreDbUsersAndRoles[Restore user and role definitions for the given database]:arg:" \
+  "--dir=[Input directory, use '-' for stdin]:arg:(-)" \
   "--gzip[Decompress gzipped input]" \
   "--drop[Drop each collection before import]" \
   "--dryRun[View summary without importing anything. Recommended with verbosity]" \
-  "--writeConcern[Write concern options e.g. --writeConcern '{w: 3, wtimeout: 500 }' (default: majority)]:writeConcern:" \
+  "--writeConcern=[Write concern options e.g. --writeConcern '{w: 3, wtimeout: 500 }' (default: majority)]:arg:" \
   "--noIndexRestore[Don't restore indexes]" \
   "--noOptionsRestore[Don't restore collection options]" \
+  "--convertLegacyIndexes[Removes invalid index options and rewrites legacy option values (e.g. true becomes 1)]" \
   "--keepIndexVersion[Don't update index version]" \
   "--maintainInsertionOrder[Preserve order of documents during restoration]" \
-  {-j,--numParallelCollections}"[Number of collections to restore in parallel (default: 4)]:numParallelCollections:" \
-  "--numInsertionWorkersPerCollection[Number of insert operations to run concurrently per collection (default: 1)]:numInsertionWorkersPerCollection:" \
+  {-j,--numParallelCollections}"[Number of collections to restore in parallel (default: 4)]:arg:(4)" \
+  "--numInsertionWorkersPerCollection[Number of insert operations to run concurrently per collection (default: 1)]:arg:(1)" \
   "--stopOnError[Stop restoring if an error is encountered on insert (off by default)]" \
   "--bypassDocumentValidation[Bypass document validation]" \
+  "--preserveUUID[Preserve original collection UUIDs (off by default, requires drop)]" \
+  "--fixDottedHashIndex[When enabled, all the hashed indexes on dotted fields will be created as single field ascending indexes on the destination]" \
   && return 0
 
 return 1

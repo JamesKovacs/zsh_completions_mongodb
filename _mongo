@@ -5,10 +5,9 @@ _arguments -S \
   "--nodb[Don't connect to mongod on startup - no 'db address' arg expected]" \
   '--norc[Will not run the ".mongorc.js" file on start up]' \
   "--quiet[Be less chatty]" \
-  "--port[Port to connect to]:port number:" \
-  "--host[Server to connect to]:hostname:" \
-  "--ipv6[Enable IPv6 support (disabled by default)]:ipv6:" \
-  "--networkMessageCompressors[Enables network compression for communication (MongoDB 3.4+)]:network_compressor:" \
+  "--port[Port to connect to]:arg:(27017)" \
+  "--host[Server to connect to]:arg:(localhost)" \
+  "--ipv6[Enable IPv6 support (disabled by default)]" \
   "--eval[Evaluate javascript]:filename:{_files -g '*.js'}" \
   {-h,--help}"[Show this usage information]" \
   "--version[Show version information]" \
@@ -17,24 +16,41 @@ _arguments -S \
   "--disableJavaScriptJIT[Disable the JavaScript just in time compiler (MongoDB 3.2+)]" \
   "--disableJavaScriptProtection[Allow automatic JavaScript function marshalling (MongoDB 3.4+)]" \
   "--enableJavaScriptProtection[Disallow automatic JavaScript function marshalling (MongoDB 3.2.4+; not required in 3.4)]" \
-  "--jsHeapLimitMB[Set the JavaScript scope's heap size limit]:heaplimit:" \
+  "--jsHeapLimitMB[Set the JavaScript scope's heap size limit]:arg:" \
+  "--idleSessionTimeout[Terminate the Shell session if it's been idle for this many seconds]:arg:" \
+  "--awsAccessKeyId[AWS Access Key for FLE Amazon KMS]:arg:" \
+  "--awsSecretAccessKey[AWS Secret Key for FLE Amazon KMS]:arg:" \
+  "--awsSessionToken[Optional AWS Session Token ID]:arg:" \
+  "--keyVaultNamespace[database.collection to store encrypted FLE parameters]:arg:" \
+  "--kmsURL[Test parameter to override the URL for KMS]:arg:" \
+  "--awsIamSessionToken[AWS Session Token for temporary credentials]:arg:" \
   "--ssl[Use SSL for all connections]" \
-  "--sslCAFile[Certificate authority file for SSL]:arg:_files" \
-  "--sslPEMKeyFile[PEM certificate/key file for SSl]:arg:_files" \
-  "--sslPEMKeyPassword[Password for key in PEM file for SSL]:arg:_files" \
-  "--sslCRLFile[Certificate revocation list file for SSL]:arg:_files" \
+  "--sslCAFile[Certificate authority file for SSL]:filename:_files" \
+  "--sslPEMKeyFile[PEM certificate/key file for SSl]:filename:_files" \
+  "--sslPEMKeyPassword[Password for key in PEM file for SSL]:arg:" \
+  "--sslCRLFile[Certificate revocation list file for SSL]:filename:_files" \
   "--sslAllowInvalidHostnames[Allow connections to servers with non-matching hostnames]" \
   "--sslAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
-  "--sslCertificateSelector[SSL Certificate in system store (MongoDB 4.0+)]:sslcertificateselector:" \
-  "--sslDisabledProtocols[Comma separated list of TLS protocols to disable]:ssldisabledprotocols:" \
+  "--sslCertificateSelector[SSL Certificate in system store (MongoDB 4.0+)]:arg:" \
+  "--sslDisabledProtocols[Comma separated list of TLS protocols to disable]:arg:(TLS1_0,TLS1_1,TLS1_2)" \
   "--sslFIPSMode[Activate FIPS 140-2 mode at startup]" \
-  {-u,--username}"[Username for authentication]:username:" \
-  {-p,--password}"[Password for authentication]:password:" \
+  "--tls[Use TLS for all connections]" \
+  "--tlsCertificateKeyFile[PEM certificate/key file for TLS]:filename:_files" \
+  "--tlsCertificateKeyFilePassword[Password for key in PEM file for TLS]:arg:" \
+  "--tlsCAFile[Certificate Authority file for TLS]:filename:_files" \
+  "--tlsCRLFile[Certificate Revocation List file for TLS]:filename:_files" \
+  "--tlsAllowInvalidHostnames[Allow server certificates to provide non-matching hostnames]" \
+  "--tlsAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
+  "--tlsFIPSMode[Activate FIPS 140-2 mode at startup]" \
+  "--tlsCertificateSelector[TLS Certificate in system store]:arg:" \
+  "--tlsDisabledProtocols[Comma separated list of TLS protocols to disable \[TLS1_0,TLS1_1,TLS1_2\]]:arg:(TLS1_0,TLS1_1,TLS1_2)" \
+  {-u,--username}"[Username for authentication]:arg:" \
+  {-p,--password}"[Password for authentication]:arg:" \
   "--retryWrites[automatically retry write operations upon transient network errors (MongoDB 3.6+)]" \
-  "--authenticationDatabase[User source (defaults to dbname)]:authentication database:" \
-  "--authenticationMechanism[Authentication mechanism]:mechanism:" \
-  "--gssapiServiceName[Service name to use when authenticating using GSSAPI/Kerberos]:service name:" \
-  "--gssapiHostName[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:hostname:" \
+  "--authenticationDatabase[User source (defaults to dbname)]:arg:(admin)" \
+  "--authenticationMechanism[Authentication mechanism]:arg:(SCRAM-SHA-256)" \
+  "--gssapiServiceName[Service name to use when authenticating using GSSAPI/Kerberos]:arg:" \
+  "--gssapiHostName[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:arg:" \
   && return 0
 
 return 1

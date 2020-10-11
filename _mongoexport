@@ -1,44 +1,50 @@
 #compdef mongoexport
 
+jsonformat_values=( canonical relaxed )
+type_values=( json csv )
+verbose_values=( 1 2 3 4 5 )
+
 _arguments -S \
   "--help[Show this usage information]" \
   "--version[Show version information]" \
-  "--verbose[More detailed log output (specify a numeric value from 1 to 5)]" \
+  "--verbose=[More detailed log output (specify a numeric value from 1 to 5)]:arg:_values 'verbose' $verbose_values" \
   "--quiet[Hide all log output]" \
-  {-h,--host}"[Server to connect to]:hostname:" \
-  "--port[Port to connect to]:port number:" \
+  {-h,--host}"[Server to connect to]:arg:(localhost)" \
+  "--port[Port to connect to]:arg:(27017)" \
   "--ssl[Use SSL for all connections]" \
-  "--sslCAFile[Certificate authority file for SSL]:arg:_files" \
-  "--sslPEMKeyFile[PEM certificate/key file for SSl]:arg:_files" \
-  "--sslPEMKeyPassword[Password for key in PEM file for SSL]:arg:_files" \
-  "--sslCRLFile[Certificate revocation list file for SSL]:arg:_files" \
+  "--sslCAFile=[Certificate authority file for SSL]:filename:_files" \
+  "--sslPEMKeyFile=[PEM certificate/key file for SSl]:filename:_files" \
+  "--sslPEMKeyPassword=[Password for key in PEM file for SSL]:arg:" \
+  "--sslCRLFile=[Certificate revocation list file for SSL]:filename:_files" \
   "--sslAllowInvalidHostnames[Allow connections to servers with non-matching hostnames]" \
   "--sslAllowInvalidCertificates[Allow connections to servers with invalid certificates]" \
   "--sslFIPSMode[Activate FIPS 140-2 mode at startup]" \
-  {-u,--username}"[Username for authentication]:username:" \
-  {-p,--password}"[Password for authentication]:password:" \
-  "--authenticationDatabase[User source (defaults to dbname)]:authentication database:" \
-  "--authenticationMechanism[Authentication mechanism]:mechanism:" \
-  "--gssapiServiceName[Service name to use when authenticating using GSSAPI/Kerberos]:service name:" \
-  "--gssapiHostName[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:hostname:" \
-  "--uri[MongoDB URI connection string]:mongodb-uri:" \
-  {-d,--db}"[Database to use]:database:" \
-  {-c,--collection}"[Collection to use]:collection:" \
-  {-q,--query}"[Query filter, as a JSON string, e.g., '{x:{$gt:1}}']:query:" \
-  "--queryFile[Path to a file containing a query filter (JSON)]:queryFile:_files:" \
-  {-f,--fields}"[Comma separated list of field names (required for exporting CSV) e.g. -f \"name,age\"]" \
-  "--fieldFile[File with field names - 1 per line]:fieldFile:_files:" \
-  "--type[The output format, either json or csv (defaults to 'json')]" \
-  {-o,--out}"[Output file; if not specified, stdout is used]:output:" \
+  {-u,--username}"[Username for authentication]:arg:" \
+  {-p,--password}"[Password for authentication]:arg:" \
+  "--authenticationDatabase=[User source (defaults to dbname)]:arg:(admin)" \
+  "--authenticationMechanism=[Authentication mechanism]:arg:(SCRAM-SHA-256)" \
+  "--awsSessionToken=[Session token to authenticate via AWS IAM]:arg:" \
+  "--gssapiServiceName=[Service name to use when authenticating using GSSAPI/Kerberos]:arg:" \
+  "--gssapiHostName=[Remote host name to use for purpose of GSSAPI/Kerberos authentication]:arg:" \
+  "--uri=[MongoDB URI connection string]:arg:" \
+  {-d,--db}"[Database to use]:arg:" \
+  {-c,--collection}"[Collection to use]:arg:" \
+  {-q,--query}"[Query filter, as a JSON string, e.g., '{x:{$gt:1}}']:arg:" \
+  "--queryFile=[Path to a file containing a query filter (JSON)]:filename:_files:" \
+  {-f,--fields}"[Comma separated list of field names (required for exporting CSV) e.g. -f \"name,age\"]:arg:" \
+  "--fieldFile=[File with field names - 1 per line]:filename:_files:" \
+  "--type=[The output format, either json or csv (defaults to 'json')]:arg:_values 'type' $type_values" \
+  {-o,--out}"[Output file; if not specified, stdout is used]:arg:" \
   "--jsonArray[Output to a JSON array rather than one object per line]" \
   "--pretty[Output JSON formatted to be human-readable]" \
   "--noHeaderLine[Export CSV data without a list of field names at the first line]" \
+  "--jsonFormat=[Extended JSON format to output, either canonical or relaxed (default: relaxed)]:arg:_values 'jsonformat' $jsonformat_values" \
   {-k,--slaveOk}"[Allow secondary reads if available (default: false)]" \
-  "--readPreference[Specify either a preference name or a preference json object]:readPreference:" \
+  "--readPreference=[Specify either a preference name or a preference json object]:arg:" \
   "--forceTableScan[Force a table scan (do not use $snapshot)]" \
-  "--skip[Number of documents to skip]:skip:" \
-  "--limit[Limit the number of documents to export]:limit:" \
-  "--sort[Sort order, as a JSON string, e.g. '{x:1}']:sort:" \
+  "--skip=[Number of documents to skip]:arg:" \
+  "--limit=[Limit the number of documents to export]:arg:(1000)" \
+  "--sort=[Sort order, as a JSON string, e.g. '{x:1}']:arg:" \
   "--assertExists[If specified, export fails if the collection does not exist (default: false)]" \
   && return 0
 

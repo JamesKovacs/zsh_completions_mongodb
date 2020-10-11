@@ -1,15 +1,18 @@
 #compdef bsondump
 
+type_values=( json debug )
+verbose_values=( 1 2 3 4 5 )
+
 _arguments -S \
-  "--bsonFile[Path to BSON file to dump to JSON (default: stdin)]:filename:_files -g \*.bson" \
-  "--outFile[Path to output file to dump BSON to (default: stdout)]" \
+  "--bsonFile=[Path to BSON file to dump to JSON (default: stdin)]:filename:_files -g \*.bson" \
+  "--outFile=[Path to output file to dump BSON to (default: stdout)]" \
   "--help[Show this usage information]" \
   "--objcheck[Validate BSON during processing]" \
   "--pretty[Output JSON formatted to be human-readable]" \
   "--quiet[Hide all log output]" \
-  "--type[type of output: debug, json (default: json)]" \
+  "--type=[type of output: debug, json (default: json)]:arg:_values 'type' $type_values" \
   "--version[Show version information]" \
-  "--verbose[More detailed log output (specify a numeric value from 1 to 5)]:verbose:" \
+  "--verbose=[More detailed log output (specify a numeric value from 1 to 5)]:arg:_values 'verbose' $verbose_values" \
   && return 0
 
 return 1
